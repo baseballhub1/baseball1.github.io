@@ -3,103 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Web Portfolio</title>
+    <title>Baseball Database Project - Tech Stack</title>
     <style>
-        /* 기본 스타일 및 모바일 최적화 */
+        /* 기본 스타일 초기화 */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Apple SD Gothic Neo', sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; }
-        a { text-decoration: none; color: inherit; }
-
-        /* 상단 고정 메뉴 */
-        header { background: #2c3e50; color: #fff; position: sticky; top: 0; z-index: 1000; padding: 10px 0; }
-        nav ul { display: flex; justify-content: space-around; list-style: none; }
-        nav a { font-size: 0.85rem; font-weight: bold; padding: 5px 10px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; scroll-behavior: smooth; }
+        
+        /* 헤더 스타일 */
+        header {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        nav { display: flex; justify-content: center; gap: 20px; }
+        nav a { color: #fff; text-decoration: none; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: #e94560; }
 
         /* 섹션 공통 스타일 */
-        section { padding: 50px 20px; border-bottom: 1px solid #ddd; background: #fff; }
-        h2 { font-size: 1.5rem; margin-bottom: 20px; color: #2c3e50; border-left: 5px solid #2c3e50; padding-left: 10px; }
+        section { padding: 100px 20px; max-width: 1000px; margin: 0 auto; border-bottom: 1px solid #eee; }
+        h2 { margin-bottom: 20px; color: #1a1a2e; border-left: 5px solid #e94560; padding-left: 10px; }
 
-        /* 섹션 2: 기술 목록 */
-        .tech-list { list-style: none; }
-        .tech-list li { background: #ecf0f1; margin-bottom: 10px; padding: 15px; border-radius: 5px; font-weight: bold; }
+        /* 갤러리 이미지 */
+        .gallery-img { width: 100%; max-width: 400px; display: block; margin: 20px auto; border-radius: 50%; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-        /* 섹션 3: 사진 갤러리 (img1.html 참조) */
-        .gallery { display: grid; grid-template-columns: 1fr; gap: 15px; }
-        .gallery img { width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        /* 웹 기술 스택 아코디언 스타일 */
+        .stack-category { margin-bottom: 10px; border-radius: 8px; overflow: hidden; border: 1px solid #ddd; }
+        .stack-header { 
+            background: #f4f4f4; padding: 15px 20px; cursor: pointer; font-weight: bold; 
+            display: flex; justify-content: space-between; transition: 0.3s;
+        }
+        .stack-header:hover { background: #e94560; color: #fff; }
+        .stack-content { display: none; padding: 15px; background: #fff; }
 
-        /* 섹션 4: 카드 레이아웃 (hyperlink.html 참조) */
-        .card { background: #fff; border: 1px solid #eee; padding: 20px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .card h3 { margin-bottom: 10px; color: #e67e22; }
-        .btn-link { display: inline-block; margin-top: 10px; padding: 8px 15px; background: #2c3e50; color: #fff; border-radius: 5px; font-size: 0.8rem; }
+        /* 링크 버튼 스타일 */
+        .file-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+        .file-links a { 
+            display: block; padding: 12px; background: #fff; text-align: center; 
+            text-decoration: none; color: #333; border-radius: 5px; border: 1px solid #ddd; font-size: 0.9rem; transition: 0.2s;
+        }
+        .file-links a:hover { border-color: #e94560; color: #e94560; background: #fff5f6; }
 
-        /* 섹션 5: SNS 메뉴 */
-        .sns-group { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .sns-icon { width: 50px; height: 50px; background: #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; }
+        /* SNS 푸터 */
+        footer { background: #1a1a2e; color: #fff; padding: 40px 20px; text-align: center; }
+        .sns-links a { color: #fff; margin: 0 15px; text-decoration: none; font-size: 1.1rem; border-bottom: 1px dashed #e94560; }
+        
+        .security-card { background: #f9f9f9; padding: 20px; border-radius: 10px; margin-top: 15px; }
     </style>
 </head>
 <body>
 
     <header>
         <nav>
-            <ul>
-                <li><a href="#intro">홈</a></li>
-                <li><a href="#tech">기술</a></li>
-                <li><a href="#gallery">갤러리</a></li>
-                <li><a href="#ai-content">AI/프로그램</a></li>
-                <li><a href="#sns">SNS</a></li>
-            </ul>
+            <a href="#intro">소개</a>
+            <a href="#gallery">갤러리</a>
+            <a href="#tech-stack">웹 기술 스택</a>
+            <a href="#security">서버 보안</a>
+            <a href="#sns">SNS</a>
         </nav>
     </header>
 
     <section id="intro">
         <h2>홈페이지 소개</h2>
-        <p><strong>인공지능(AI)</strong>은 인간의 지능을 기계나 컴퓨터가 모방하는 기술입니다.</p>
-        <p style="margin-top:10px;">본 페이지는 모바일 환경에 최적화되어 학습 데이터와 포트폴리오를 제공합니다.</p>
-        <a href="https://ai.yit.ac.kr" class="btn-link">학교 학과 홈페이지 바로가기</a>
-    </section>
-
-    <section id="tech">
-        <h2>웹 개발 기술</h2>
-        <ul class="tech-list">
-            <li>HTML5: 웹 문서의 뼈대를 만드는 마크업 언어</li>
-            <li>CSS3: 화려한 스타일과 반응형 레이아웃 설계</li>
-            <li>JavaScript: 동적인 사용자 경험 구현</li>
-        </ul>
+        <p>데이터를 통해 야구의 미래를 예측하는 <strong>Baseball Database</strong> 프로젝트입니다. KBO 리그의 방대한 데이터를 수집하고 분석하여 사용자에게 인사이트를 제공하는 것을 목표로 합니다.</p>
     </section>
 
     <section id="gallery">
-        <h2>사진 갤러리</h2>
-        <div class="gallery">
-            <img src="/img/html img1.png" alt="HTML 이미지 샘플">
-            <p style="font-size: 0.8rem; color: #666; text-align: center;">작성자: 권명호</p>
+        <h2>갤러리</h2>
+        <img src="img\html img1.png" alt="Baseball Database Logo" class="gallery-img">
+        <p style="text-align: center; margin-top: 10px;">프로젝트의 핵심 아이덴티티를 담은 로고 디자인</p>
+    </section>
+
+    <section id="tech-stack">
+        <h2>웹 기술 스택</h2>
+        <p style="margin-bottom: 20px;">기술별 카테고리를 클릭하여 상세 예제 목록을 확인하세요.</p>
+
+        <div class="stack-category">
+            <div class="stack-header" onclick="toggleStack('html-list')">HTML 구조 <span>▼</span></div>
+            <div id="html-list" class="stack-content">
+                <div class="file-links">
+                    <a href="html/metaHtml.html" target="_blank">메타태그</a>
+                    <a href="html/heading.html" target="_blank">헤딩태그</a>
+                    <a href="html/테이틀 병합html.html" target="_blank">테이블 병합</a>
+                    <a href="html/img1.html" target="_blank">이미지 태그</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="stack-category">
+            <div class="stack-header" onclick="toggleStack('css-list')">CSS 디자인 <span>▼</span></div>
+            <div id="css-list" class="stack-content">
+                <div class="file-links">
+                    <a href="cssColor.html" target="_blank">색상 및 배경</a>
+                    <a href="cssFont.html" target="_blank">폰트 스타일</a>
+                    <a href="cssBorder.html" target="_blank">테두리와 여백</a>
+                    <a href="cssFlex.html" target="_blank">레이아웃(Flex)</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="stack-category">
+            <div class="stack-header" onclick="toggleStack('js-list')">JS 기능 <span>▼</span></div>
+            <div id="js-list" class="stack-content">
+                <div class="file-links">
+                    <a href="jsAlert.html" target="_blank">알림창 예제</a>
+                    <a href="jsDom.html" target="_blank">DOM 요소 조작</a>
+                    <a href="jsEvent.html" target="_blank">이벤트 처리</a>
+                    <a href="jsCalc.html" target="_blank">데이터 계산</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="ai-content">
-        <h2>전문 콘텐츠</h2>
-        <div class="card">
-            <h3>Ai 콘텐츠</h3>
-            <p>데이터를 바탕으로 규칙과 패턴을 자동으로 학습하는 인공지능의 핵심 기능을 연구합니다.</p>
-        </div>
-        <div class="card">
-            <h3>프로그래밍</h3>
-            <p>다양한 언어를 활용하여 논리적인 문제 해결 능력을 기계에 부여합니다.</p>
-        </div>
-        <div class="card">
-            <h3>AI 앱</h3>
-            <p>모바일 전용 환경에서 구동되는 지능형 애플리케이션 서비스를 개발합니다.</p>
+    <section id="security">
+        <h2>서버 보안 소개</h2>
+        <div class="security-card">
+            <p>데이터의 무결성과 사용자 정보를 보호하기 위해 다음과 같은 보안 원칙을 준수합니다.</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><strong>HTTPS 암호화:</strong> SSL/TLS 인증서를 사용하여 클라이언트와 서버 간의 모든 통신을 암호화합니다.</li>
+                <li><strong>SQL Injection 방지:</strong> Prepared Statements를 사용하여 데이터베이스 쿼리를 안전하게 처리합니다.</li>
+                <li><strong>인증 및 인가:</strong> JWT(JSON Web Token) 또는 세션 기반의 강력한 인증 시스템을 구축합니다.</li>
+                <li><strong>XSS 방어:</strong> 사용자 입력값에 대한 필터링과 이스케이프 처리를 통해 악성 스크립트 실행을 차단합니다.</li>
+            </ul>
         </div>
     </section>
 
-    <section id="sns">
-        <h2>연락처 및 SNS</h2>
-        <div class="sns-group">
-            <a href="mailto:peterkwon06@naver.com" class="sns-icon">Mail</a>
-            <a href="#" class="sns-icon">Insta</a>
-            <a href="#" class="sns-icon">Blog</a>
-            <a href="#" class="sns-icon">Notion</a>
+    <footer id="sns">
+        <h2>Contact & SNS</h2>
+        <div class="sns-links">
+            <a href="https://www.instagram.com/number_9_baseball?igsh=MTNyazVvYTA4ejNqaA==" target="_blank">Instagram</a>
+            <a href="mailto:peterkwon06@naver.com">Email Contact</a>
         </div>
-    </section>
+        <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.6;">&copy; 2026 Baseball Database Project. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleStack(id) {
+            const content = document.getElementById(id);
+            const isVisible = content.style.display === "block";
+            
+            // 모든 목록을 닫고 클릭한 것만 열고 싶다면 아래 한 줄 주석을 해제하세요.
+            // document.querySelectorAll('.stack-content').forEach(el => el.style.display = 'none');
+            
+            content.style.display = isVisible ? "none" : "block";
+        }
+    </script>
 
 </body>
 </html>
