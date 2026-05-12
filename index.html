@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Web Portfolio</title>
+    <style>
+        /* 기본 스타일 및 모바일 최적화 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Apple SD Gothic Neo', sans-serif; line-height: 1.6; color: #333; background-color: #f9f9f9; }
+        a { text-decoration: none; color: inherit; }
+
+        /* 상단 고정 메뉴 */
+        header { background: #2c3e50; color: #fff; position: sticky; top: 0; z-index: 1000; padding: 10px 0; }
+        nav ul { display: flex; justify-content: space-around; list-style: none; }
+        nav a { font-size: 0.85rem; font-weight: bold; padding: 5px 10px; }
+
+        /* 섹션 공통 스타일 */
+        section { padding: 50px 20px; border-bottom: 1px solid #ddd; background: #fff; }
+        h2 { font-size: 1.5rem; margin-bottom: 20px; color: #2c3e50; border-left: 5px solid #2c3e50; padding-left: 10px; }
+
+        /* 섹션 2: 기술 목록 */
+        .tech-list { list-style: none; }
+        .tech-list li { background: #ecf0f1; margin-bottom: 10px; padding: 15px; border-radius: 5px; font-weight: bold; }
+
+        /* 섹션 3: 사진 갤러리 (img1.html 참조) */
+        .gallery { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        .gallery img { width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+
+        /* 섹션 4: 카드 레이아웃 (hyperlink.html 참조) */
+        .card { background: #fff; border: 1px solid #eee; padding: 20px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .card h3 { margin-bottom: 10px; color: #e67e22; }
+        .btn-link { display: inline-block; margin-top: 10px; padding: 8px 15px; background: #2c3e50; color: #fff; border-radius: 5px; font-size: 0.8rem; }
+
+        /* 섹션 5: SNS 메뉴 */
+        .sns-group { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .sns-icon { width: 50px; height: 50px; background: #ddd; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#intro">홈</a></li>
+                <li><a href="#tech">기술</a></li>
+                <li><a href="#gallery">갤러리</a></li>
+                <li><a href="#ai-content">AI/프로그램</a></li>
+                <li><a href="#sns">SNS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="intro">
+        <h2>홈페이지 소개</h2>
+        <p><strong>인공지능(AI)</strong>은 인간의 지능을 기계나 컴퓨터가 모방하는 기술입니다.</p>
+        <p style="margin-top:10px;">본 페이지는 모바일 환경에 최적화되어 학습 데이터와 포트폴리오를 제공합니다.</p>
+        <a href="https://ai.yit.ac.kr" class="btn-link">학교 학과 홈페이지 바로가기</a>
+    </section>
+
+    <section id="tech">
+        <h2>웹 개발 기술</h2>
+        <ul class="tech-list">
+            <li>HTML5: 웹 문서의 뼈대를 만드는 마크업 언어</li>
+            <li>CSS3: 화려한 스타일과 반응형 레이아웃 설계</li>
+            <li>JavaScript: 동적인 사용자 경험 구현</li>
+        </ul>
+    </section>
+
+    <section id="gallery">
+        <h2>사진 갤러리</h2>
+        <div class="gallery">
+            <img src="/img/html img1.png" alt="HTML 이미지 샘플">
+            <p style="font-size: 0.8rem; color: #666; text-align: center;">작성자: 권명호</p>
+        </div>
+    </section>
+
+    <section id="ai-content">
+        <h2>전문 콘텐츠</h2>
+        <div class="card">
+            <h3>Ai 콘텐츠</h3>
+            <p>데이터를 바탕으로 규칙과 패턴을 자동으로 학습하는 인공지능의 핵심 기능을 연구합니다.</p>
+        </div>
+        <div class="card">
+            <h3>프로그래밍</h3>
+            <p>다양한 언어를 활용하여 논리적인 문제 해결 능력을 기계에 부여합니다.</p>
+        </div>
+        <div class="card">
+            <h3>AI 앱</h3>
+            <p>모바일 전용 환경에서 구동되는 지능형 애플리케이션 서비스를 개발합니다.</p>
+        </div>
+    </section>
+
+    <section id="sns">
+        <h2>연락처 및 SNS</h2>
+        <div class="sns-group">
+            <a href="mailto:peterkwon06@naver.com" class="sns-icon">Mail</a>
+            <a href="#" class="sns-icon">Insta</a>
+            <a href="#" class="sns-icon">Blog</a>
+            <a href="#" class="sns-icon">Notion</a>
+        </div>
+    </section>
+
+</body>
+</html>
